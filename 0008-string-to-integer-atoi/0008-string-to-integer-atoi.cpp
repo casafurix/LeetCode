@@ -1,3 +1,5 @@
+// TIME COMPLEXITY: O(n), SPACE COMPLEXITY: O(1)
+
 class Solution {
 public:
     int myAtoi(string s) {
@@ -18,15 +20,17 @@ public:
         
         if(s[0] == '-') sign = -1;
         
+        
         // if there is a sign present before digit, "-42", start from index 1 instead of 0, else, start from index 0
         i = (s[0] == '+' || s[0] == '-') ? 1 : 0;
-        
-        
+                
         // 3. 4. 5. 
         while(i < s.length()){
             // 3. break loop if whitespace/non-digit is reached.
             if(s[i] == ' ' || !isdigit(s[i])) break;
-             
+            
+            // ASCII value of '4' is 52, and ASCII value of '0' is 48, so, voila! 52 - 48 = 4!
+            //4193 -> 0*10 + 4 = 4 -> 4 * 10 + 1 = 41 -> 41 * 10 + 9 = 419 -> 419 * 10 + 3 = 4193! 
             ans = ans * 10 + s[i] - '0'; //convert to ASCII numerical value. So, subtract '0'.
             
             // 5. clamping integer in range from INT_MIN to INT_MAX
