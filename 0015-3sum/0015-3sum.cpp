@@ -20,7 +20,7 @@ public:
             
             while(start < end){
                 if(nums[start] + nums[end] == rem){
-                    ans.push_back({nums[i], nums[start], nums[end]});
+                    ans.push_back({a, nums[start], nums[end]});
                     // to avoid repeating elements
                     while(start < end && nums[start] == nums[start+1]) start++;
                     while(start < end && nums[end] == nums[end-1]) end--;
